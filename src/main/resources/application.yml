@@ -11,6 +11,8 @@ spring:
     view:
       prefix: /jsp/
       suffix: .jsp
+  freemarker:
+    suffix: .ftl
   redis:
     host: 127.0.0.1
     port: 6379

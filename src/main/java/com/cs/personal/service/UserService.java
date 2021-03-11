@@ -1,5 +1,6 @@
 package com.cs.personal.service;
 
+import com.cs.personal.dto.ResultObject;
 import com.cs.personal.dto.UserDto;
 
 /**
@@ -15,5 +16,12 @@ public interface UserService {
      * @return 实体
      */
     public UserDto queryUserInfo(Integer userName);
+
+    /**
+     * 添加用户
+     * @param userDto 实体
+     * @return 返回体
+     */
+    public ResultObject addUserInfo(UserDto userDto);
 
 }
