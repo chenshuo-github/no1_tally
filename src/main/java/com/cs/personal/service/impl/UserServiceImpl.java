@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResultObject addUserInfo(UserDto userDto) {
         UserEntity userEntity = toUserEntity(userDto);
-        userMapper.insert(userEntity);
+        userMapper.insertUserEntity(userEntity);
 //        if (1 == num) {
 //            return resultUtil.success();
 //        } else {

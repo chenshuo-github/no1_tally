@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cs.personal.mapper.BillMapper">
+  <resultMap id="BaseResultMap" type="com.cs.personal.entity.BillEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="meal_fee" jdbcType="DOUBLE" property="mealFee" />
+    <result column="online_shopping_fee" jdbcType="DOUBLE" property="onlineShoppingFee" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, meal_fee, online_shopping_fee, note, other_fee, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from a_bill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from a_bill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertBillEntity" parameterType="com.cs.personal.entity.BillEntity" >
+    insert into a_bill (meal_fee, online_shopping_fee, note, other_fee)
+    values (#{mealFee,jdbcType=DOUBLE}, #{onlineShoppingFee,jdbcType=DOUBLE}, #{note,jdbcType=VARCHAR},#{otherFee,jdbcType=DOUBLE})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cs.personal.entity.BillEntity">
+    update a_bill
+    <set>
+      <if test="mealFee != null">
+        meal_fee = #{mealFee,jdbcType=DOUBLE},
+      </if>
+      <if test="onlineShoppingFee != null">
+        online_shopping_fee = #{onlineShoppingFee,jdbcType=DOUBLE},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="otherFee != null">
+        other_fee = #{otherFee,jdbcType=DOUBLE}
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cs.personal.entity.BillEntity">
+    update a_bill
+    set meal_fee = #{mealFee,jdbcType=DOUBLE},
+      online_shopping_fee = #{onlineShoppingFee,jdbcType=DOUBLE},
+      note = #{note,jdbcType=VARCHAR},
+      other_fee = #{otherFee,jdbcType=DOUBLE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

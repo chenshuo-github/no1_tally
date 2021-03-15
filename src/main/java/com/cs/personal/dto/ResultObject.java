@@ -20,4 +20,9 @@ public class ResultObject {
      * 返回描述
      */
     private String message;
+
+    /**
+     * 返回体
+     */
+    private Object msgBody;
 }

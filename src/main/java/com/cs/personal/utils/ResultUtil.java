@@ -20,6 +20,13 @@ public class ResultUtil {
         return resultObject;
     }
 
+    public ResultObject successWithMsgBody(Object obj) {
+        resultObject.setCode("200");
+        resultObject.setMessage("成功");
+        resultObject.setMsgBody(obj);
+        return resultObject;
+    }
+
     public ResultObject fail() {
         resultObject.setCode("500");
         resultObject.setMessage("失败");

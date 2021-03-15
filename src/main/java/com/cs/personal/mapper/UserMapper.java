@@ -24,8 +24,7 @@ public interface UserMapper extends BaseMapper<UserEntity> {
      * @param record 用户信息
      * @return 返回值
      */
-    @Override
-    int insert(UserEntity record);
+    int insertUserEntity(UserEntity record);
 
     /**
      * 根据主键查询用户信息

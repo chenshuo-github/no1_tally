@@ -4,9 +4,9 @@ import com.cs.personal.dto.ResultObject;
 import com.cs.personal.dto.UserDto;
 
 /**
- * @author thinkpad
+ * @author cs
  * @date 2021-03-04
- * @decription
+ * @decription Service接口
  */
 public interface UserService {
 
@@ -15,13 +15,13 @@ public interface UserService {
      * @param userName 用户名
      * @return 实体
      */
-    public UserDto queryUserInfo(Integer userName);
+    UserDto queryUserInfo(Integer userName);
 
     /**
      * 添加用户
      * @param userDto 实体
      * @return 返回体
      */
-    public ResultObject addUserInfo(UserDto userDto);
+    ResultObject addUserInfo(UserDto userDto);
 
 }
