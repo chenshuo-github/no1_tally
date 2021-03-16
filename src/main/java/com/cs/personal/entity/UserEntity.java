@@ -21,9 +21,9 @@ public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键
+     * 主键,添加注解value:数据库字段值,type:AUTO表示自增ID
      */
-    @TableId(value="id",type= IdType.AUTO)
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
 
     /**

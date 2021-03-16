@@ -34,6 +34,14 @@ public interface UserMapper extends BaseMapper<UserEntity> {
     UserEntity selectByPrimaryKey(Integer id);
 
     /**
+     * 根据用户名密码查询用户
+     * @param userName 用户名
+     * @param password 密码
+     * @return 返回值
+     */
+    UserEntity selectByUserNameAndPassword(String userName, String password);
+
+    /**
      * 修改用户信息
      * @param record 用户信息
      * @return 返回值

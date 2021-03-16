@@ -27,6 +27,13 @@ public class UserController {
         return modelAndView;
     }
 
+    @GetMapping(value = "/login")
+    public ModelAndView toLogin(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/login/login");
+        return modelAndView;
+    }
+
     @GetMapping(value = "/getUser/{id}")
     public UserDto queryUserInfo(@PathVariable Integer id){
         return userService.queryUserInfo(id);
