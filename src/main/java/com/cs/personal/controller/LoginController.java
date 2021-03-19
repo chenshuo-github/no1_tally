@@ -1,26 +1,45 @@
 package com.cs.personal.controller;
 
+import com.cs.personal.dto.UserDto;
 import com.cs.personal.service.LoginService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping(value = "/api/v1/login")
+@RequestMapping(value = "/api/v1")
 public class LoginController {
+
+    private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Resource
     private LoginService loginService;
 
-    @GetMapping(value = "/toLogin/{userName}/{password}")
-    public ModelAndView login(@PathVariable(value = "userName") String userName, @PathVariable(value = "password") String password) {
-        boolean flag = loginService.login(userName, password);
+    @GetMapping(value="/index")
+    public ModelAndView toIndex() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/toLogin")
+    public ModelAndView toLogin() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/login/login");
+        return modelAndView;
+    }
+
+    @PostMapping(value = "/login")
+    public ModelAndView login(UserDto userDto) {
+        boolean flag = loginService.login(userDto.getUserName(), userDto.getPassword());
         ModelAndView modelAndView = new ModelAndView();
         if (flag) {
-            modelAndView.setViewName("loginSuccess");
+            modelAndView.setViewName("/login/loginSuccess");
         } else {
-            modelAndView.setViewName("loginFail");
+            modelAndView.setViewName("/user/register");
         }
         return modelAndView;
     }

@@ -1,6 +1,6 @@
 package com.cs.personal.service.impl;
 
-import com.cs.personal.dto.ResultObject;
+import com.cs.personal.dto.Result;
 import com.cs.personal.dto.UserDto;
 import com.cs.personal.entity.UserEntity;
 import com.cs.personal.mapper.UserMapper;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultObject addUserInfo(UserDto userDto) {
+    public Result addUserInfo(UserDto userDto) {
         UserEntity userEntity = toUserEntity(userDto);
         userMapper.insertUserEntity(userEntity);
 //        if (1 == num) {

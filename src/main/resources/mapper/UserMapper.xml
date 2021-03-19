@@ -25,7 +25,7 @@
     select
     <include refid="Base_Column_List" />
     from a_user
-    where user_name = #{user_name,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+    where user_name = #{userName,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -33,7 +33,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-  <insert id="insert" parameterType="com.cs.personal.entity.UserEntity" >
+  <insert id="insertUserEntity" parameterType="com.cs.personal.entity.UserEntity" >
     insert into a_user (user_name, `password`, permission)
     values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{permission,jdbcType=INTEGER})
   </insert>

@@ -9,7 +9,7 @@ import lombok.Data;
  * @version: 1.0$
  */
 @Data
-public class ResultObject {
+public class Result {
 
     /**
      * 返回状态码

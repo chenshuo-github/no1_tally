@@ -2,6 +2,7 @@ package com.cs.personal.dto;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -14,7 +15,9 @@ import java.util.Date;
 public class UserDto {
 
     private Integer id;
+    @NotNull
     private String userName;
+    @NotNull
     private String password;
     private Integer permission;
     private Date createTime;

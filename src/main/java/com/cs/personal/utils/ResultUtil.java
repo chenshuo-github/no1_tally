@@ -1,6 +1,6 @@
 package com.cs.personal.utils;
 
-import com.cs.personal.dto.ResultObject;
+import com.cs.personal.dto.Result;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,24 +12,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResultUtil {
 
-    private static final ResultObject resultObject = new ResultObject();
+    private static final Result RESULT = new Result();
 
-    public ResultObject success() {
-        resultObject.setCode("200");
-        resultObject.setMessage("成功");
-        return resultObject;
+    public Result success() {
+        RESULT.setCode("200");
+        RESULT.setMessage("成功");
+        return RESULT;
     }
 
-    public ResultObject successWithMsgBody(Object obj) {
-        resultObject.setCode("200");
-        resultObject.setMessage("成功");
-        resultObject.setMsgBody(obj);
-        return resultObject;
+    public Result successWithMsgBody(Object obj) {
+        RESULT.setCode("200");
+        RESULT.setMessage("成功");
+        RESULT.setMsgBody(obj);
+        return RESULT;
     }
 
-    public ResultObject fail() {
-        resultObject.setCode("500");
-        resultObject.setMessage("失败");
-        return resultObject;
+    public Result fail() {
+        RESULT.setCode("500");
+        RESULT.setMessage("失败");
+        return RESULT;
     }
 }

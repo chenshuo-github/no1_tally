@@ -1,6 +1,6 @@
 package com.cs.personal.controller;
 
-import com.cs.personal.dto.ResultObject;
+import com.cs.personal.dto.Result;
 import com.cs.personal.dto.UserDto;
 import com.cs.personal.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -20,27 +20,13 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @GetMapping(value="/index")
-    public ModelAndView testF2F() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        return modelAndView;
-    }
-
-    @GetMapping(value = "/login")
-    public ModelAndView toLogin(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/login/login");
-        return modelAndView;
-    }
-
     @GetMapping(value = "/getUser/{id}")
     public UserDto queryUserInfo(@PathVariable Integer id){
         return userService.queryUserInfo(id);
     }
 
-    @PostMapping(value = "/addUser")
-    public ResultObject addUserInfo(@Valid @RequestBody UserDto userDto) {
+    @PostMapping(value = "/user/save")
+    public Result addUserInfo(@Valid UserDto userDto) {
         return userService.addUserInfo(userDto);
     }
 }

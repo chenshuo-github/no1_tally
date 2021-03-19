@@ -3,8 +3,8 @@
 <html>
 <h1>Login Page</h1>
 <!--表单提交目标链接和方法post-->
-<form action="/account/valid" method="post">
-    <input type="text" name="name" placeholder="用户名">
+<form action="${pageContext.request.contextPath}/api/v1/login" method="post">
+    <input type="text" name="userName" placeholder="用户名">
     <input type="password" name="password" placeholder="密码">
     <input type="submit" value="登录">
 </form>

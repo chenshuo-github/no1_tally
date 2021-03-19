@@ -1,7 +1,7 @@
 package com.cs.personal.controller;
 
 import com.cs.personal.dto.BillDto;
-import com.cs.personal.dto.ResultObject;
+import com.cs.personal.dto.Result;
 import com.cs.personal.service.BillService;
 import com.cs.personal.utils.ResultUtil;
 import org.springframework.web.bind.annotation.*;
@@ -25,19 +25,19 @@ public class BillController {
     private ResultUtil resultUtil;
 
     @GetMapping(value = "/query/{id}")
-    public ResultObject queryBill(@PathVariable(value = "id") Integer id) {
+    public Result queryBill(@PathVariable(value = "id") Integer id) {
         BillDto billDto = billService.selectBillById(id);
         return resultUtil.successWithMsgBody(billDto);
     }
 
     @PostMapping(value = "/add")
-    public ResultObject addBill(@RequestBody BillDto billDto) {
+    public Result addBill(@RequestBody BillDto billDto) {
         billService.insertBill(billDto);
         return resultUtil.success();
     }
 
     @PostMapping(value = "/update")
-    public ResultObject updateBill(@RequestBody BillDto billDto) {
+    public Result updateBill(@RequestBody BillDto billDto) {
         BillDto billDto1 = billService.updateBill(billDto);
         return resultUtil.successWithMsgBody(billDto1);
     }
